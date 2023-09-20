@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="zh" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style src="~/Content/css/bootstrap.min.css?v=1.0.0" type="stylesheet"></style>
+    <style src="~/Content/css/font-awesome.min.css?v=1.0.0" type="stylesheet"></style>
+
+    <!-- jqgrid-->
+    <style src="/Content/css/plugins/jqgrid/ui.jqgrid.css?v=1.0.1" type="stylesheet"></style>
+
+    <style src="/Content/css/animate.min.css" type="stylesheet"></style>
+    <style src="/Content/css/style.min.css?v=1.0.0" type="stylesheet"></style>
+
+    <style src="/Scripts/plugins/jquery-validation-engine-2.6.2/css/validationEngine.jquery.css?v=1.0.0" type="stylesheet"></style>
+    @RenderSection("CSS", false)
+
+</head>
+<body class="gray-bg">
+    @RenderBody()
+    <input type="hidden" value="false" id="opt_is_success" />
+
+    <!-- 全局js -->
+    <script src="/js/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="/js/bootstrap/bootstrap.min.js?v=1.0.0" type="text/javascript"></script>
+
+    <!-- angularjs -->
+    <script src="/js/angularjs/angular.min.js" type="text/javascript"></script>
+
+    <!-- showLoading -->
+    <script src="/js/plugins/showLoading/jquery.showLoading.min.js?v=1.0.1" type="text/javascript"></script>
+
+    <!-- jqGrid -->
+    <script src="/js/plugins/jqgrid/i18n/grid.locale-cn.js" type="text/javascript"></script>
+    <script src="/js/plugins/jqgrid/jquery.jqGrid.min.js" type="text/javascript"></script>
+
+    <!-- layer -->
+    <script src="/js/plugins/layer-v2.0/layer.js?v=1.0.01" type="text/javascript"></script>
+
+
+    <!-- jquery.validationEngine -->
+    <script src="/js/plugins/jquery-validation-engine-2.6.2/js/jquery.validationEngine-zh_CN.js?v=1.0.5" type="text/javascript"></script>
+    <script src="/js/plugins/jquery-validation-engine-2.6.2/js/jquery.validationEngine.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var ReturnUrl = "";
+    </script>
+
+    <script src="~/js/only.job.js" type="text/javascript"></script>
+
+    @RenderSection("JS", false)
+
+</body>
+</html>
