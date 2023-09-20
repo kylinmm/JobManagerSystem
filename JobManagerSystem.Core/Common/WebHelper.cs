@@ -167,10 +167,19 @@ namespace JobManagerSystem.Core.Common
         /// <returns></returns>
         public static string GetRequestString(string key, string defaultValue)
         {
-            if (!string.IsNullOrEmpty(GetContext().Request.Form[key]))
-                return GetFormString(key, defaultValue);
-            else
+            try
+            {
+                if (!string.IsNullOrEmpty(GetContext().Request.Form[key]))
+                    return GetFormString(key, defaultValue);
+                else
+                    return GetQueryString(key, defaultValue);
+            }
+            catch (Exception)
+            {
                 return GetQueryString(key, defaultValue);
+                throw;
+            }
+           
         }
 
         /// <summary>
@@ -180,10 +189,19 @@ namespace JobManagerSystem.Core.Common
         /// <returns></returns>
         public static string GetRequestString(string key)
         {
-            if (!string.IsNullOrEmpty(GetContext().Request.Form[key]))
-                return GetFormString(key);
-            else
+            try
+            {
+                if (!string.IsNullOrEmpty(GetContext().Request.Form[key]))
+                    return GetFormString(key);
+                else
+                    return GetQueryString(key);
+            }
+            catch (Exception)
+            {
                 return GetQueryString(key);
+                throw;
+            }
+          
         }
 
         /// <summary>
@@ -194,10 +212,20 @@ namespace JobManagerSystem.Core.Common
         /// <returns></returns>
         public static int GetRequestInt(string key, int defaultValue)
         {
-            if (!string.IsNullOrEmpty(GetContext().Request.Form[key]))
-                return GetFormInt(key, defaultValue);
-            else
+            try
+            {
+                if (!string.IsNullOrEmpty(GetContext().Request.Form[key]))
+                    return GetFormInt(key, defaultValue);
+                else
+                    return GetQueryInt(key, defaultValue);
+            }
+            catch (Exception)
+            {
                 return GetQueryInt(key, defaultValue);
+                throw;
+            }
+           
+           
         }
 
         /// <summary>
@@ -207,10 +235,19 @@ namespace JobManagerSystem.Core.Common
         /// <returns></returns>
         public static int GetRequestInt(string key)
         {
-            if (!string.IsNullOrEmpty(GetContext().Request.Form[key]))
-                return GetFormInt(key);
-            else
+            try
+            {
+                if (!string.IsNullOrEmpty(GetContext().Request.Form[key]))
+                    return GetFormInt(key);
+                else
+                    return GetQueryInt(key);
+            }
+            catch (Exception)
+            {
                 return GetQueryInt(key);
+                throw;
+            }
+           
         }
 
         /// <summary>

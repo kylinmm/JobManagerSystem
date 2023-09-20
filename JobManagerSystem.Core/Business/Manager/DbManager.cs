@@ -1,5 +1,6 @@
 ﻿using SqlSugar;
 using System;
+using System.Configuration;
 
 namespace JobManagerSystem.Core.Business.Manager
 {
@@ -17,7 +18,7 @@ namespace JobManagerSystem.Core.Business.Manager
         {
             get
             {
-                return System.Configuration.ConfigurationManager.AppSettings.Get("DbType");
+                return System.Configuration.ConfigurationManager.AppSettings["DbType"];
             }
         }
 
@@ -27,15 +28,15 @@ namespace JobManagerSystem.Core.Business.Manager
             {
                 SqlSugarClient _db = null;
 
-                if (DbType.ToLower() == "mysql")
+                if (DbType?.ToLower() == "mysql")
                 {
                     _db = new SqlSugarClient(new ConnectionConfig() { ConnectionString = ConnectionString, DbType = SqlSugar.DbType.MySql, IsAutoCloseConnection = true });
                 }
-                else if (DbType.ToLower() == "sqlserver")
+                else if (DbType?.ToLower() == "sqlserver")
                 {
                     _db = new SqlSugarClient(new ConnectionConfig() { ConnectionString = ConnectionString, DbType = SqlSugar.DbType.SqlServer, IsAutoCloseConnection = true });
                 }
-                else if (DbType.ToLower() == "oracle")
+                else if (DbType?.ToLower() == "oracle")
                 {
                     _db = new SqlSugarClient(new ConnectionConfig() { ConnectionString = ConnectionString, DbType = SqlSugar.DbType.Oracle, IsAutoCloseConnection = true });
                 }
